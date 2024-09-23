@@ -13,3 +13,12 @@
 
 ## Encapsulamento
 Criar uma classe na qual eu não de a obrigação ao desenvolvedor de cuidar das das conexões ou dos atributos.
+
+# Aula 12
+As classes se tornam mais interessantes de usar quando há uma maior complexidade do código.
+
+Não é sobre facilidade, é sobre desenvolvimento. Facilita para os outros que vão utilizar o código.
+
+`self` serve para deixar os parâmetros já carregados em uma classe. Cada instância fica separada.
+
+Recursividade: Quando sua classe chama ela mesma

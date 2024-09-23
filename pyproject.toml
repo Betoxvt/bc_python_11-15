@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "bc-python-11"
+name = "bc-python-11-15"
 version = "0.1.0"
 description = ""
 authors = ["Roberto Guedes <robertoguedes@edu.univali.br>"]
