@@ -1,4 +1,6 @@
-# Bootcamp Python para dados (aula11) - Programação Orientada a Objetos (POO)
+# Bootcamp Python para dados - Programação Orientada a Objetos (POO)
+
+# Aula 11 - Introdução a POO
 
 ## Básico
 É um paradigma da programação.
@@ -14,7 +16,7 @@
 ## Encapsulamento
 Criar uma classe na qual eu não de a obrigação ao desenvolvedor de cuidar das das conexões ou dos atributos.
 
-# Aula 12
+# Aula 12 - Introdução às Classes em Python
 As classes se tornam mais interessantes de usar quando há uma maior complexidade do código.
 
 Não é sobre facilidade, é sobre desenvolvimento. Facilita para os outros que vão utilizar o código.
@@ -22,3 +24,48 @@ Não é sobre facilidade, é sobre desenvolvimento. Facilita para os outros que 
 `self` serve para deixar os parâmetros já carregados em uma classe. Cada instância fica separada.
 
 Recursividade: Quando sua classe chama ela mesma
+
+# Aula 13 e 14 - Herança e Polimorfismo
+
+### Desafio: Minha empresa recebe arquivos nos formatos .csv e .txt em duas pastas distintas, e preciso consolidá-los em um único dataframe.
+
+Qual seria a melhor abordagem para realizar essa tarefa?
+
+paths:
+
+data/csv_files
+
+data/txt_files
+
+Formato dos arquivos:
+
+id,name
+
+### Estrutura do projeto
+
+    `src/__main__.py` invocação dos métodos, instanciação das classes
+
+    `src/lib/classes/*.py` arquivos das classes, __init__, AbstractDataSource, CsvSource, FilesSources, TxtSource
+
+### AbstractDataSource.py:
+Receber dados de fontes genéricas. Garante que todos os desenvolvedores que usarem essa classe tem que escrever estes métodos.
+
+Classe que herda as caracteristicas da classe nativa do python ABC. 
+
+* Classes abstratas: from abc import ABC, abstractmethod
+ABC > PEP 3119 > garantir a função tenha todos os requerimentos para classe abstrata
+
+* abstractmethod > decorator que valida se o método é abstrato e obriga a próxima classe (herdeiros) a ter os métodos da classe anterior.
+
+### FilesSources.py:
+"O chefe só restringiu a métodos de arquivos"
+
+Um método para implementar o que há de comum entre diversos tipos de arquivos.
+
+* Método só para arquivos, cria os arquivos anteriores e aplica o metodo start()
+
+* Método genérico que cria path quando não há. A partir daqui pode fazer um polimorfismo, pegar o método que já existe e muda-lo para a classe herdeira para que se encaixe no contexto secundário.
+
+* Lê a pasta para detectar arquivos atuais, se os arquivos não estão na variável de arquivos anteriores, ela adiciona na lista de novos arquivos e atualiza a arquivos anteriores. Se não há nada novo nada ocorre.
+
+### CsvSource.py
