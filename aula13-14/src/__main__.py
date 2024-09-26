@@ -15,7 +15,7 @@ def check_for_new_files():
 
 
 # Agendando a execução da função check_for_new_files() a cada segundo
-schedule.every(10).seconds.do(check_for_new_files)
+schedule.every(5).seconds.do(check_for_new_files)
 
 csv_source = CsvSource()
 json_source = JsonSource()

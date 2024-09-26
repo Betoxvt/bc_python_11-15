@@ -33,8 +33,8 @@ class TxtSource(FileSources):
             try:
                 path = os.path.join(self.folder_path, file_path)
                 data = pd.read_csv(
-                    path, sep="\t"
-                )  # Assume que os arquivos .txt estão tabulados
+                    path, sep=r"\s+"
+                )  # Assume que os arquivos .txt estão tabulados ou com mais de 1 espaço em branco
                 data_frames.append(data)
             except Exception as e:
                 print("An error occurred while reading the TXT file:", e)
