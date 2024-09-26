@@ -4,8 +4,10 @@ import pandas as pd
 
 
 def read_txt(file):
-    data = pd.read_csv(file, sep=r"\s+")  # This is the way, now dataframe looks correct
-    df = pd.DataFrame(data)  # sep='\t' did not work
+    data = pd.read_csv(
+        file, sep=r"\s+"
+    )  # This is the way, now dataframe looks correct. sep='\t' did not work
+    df = pd.DataFrame(data)
     return df
 
 

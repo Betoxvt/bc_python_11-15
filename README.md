@@ -31,17 +31,13 @@ Recursividade: Quando sua classe chama ela mesma
 
 Qual seria a melhor abordagem para realizar essa tarefa?
 
-paths:
+paths:          |   format:
 
-data/csv_files
+data/csv_files  |   id,name
 
-data/txt_files
+data/txt_files  |   id  name
 
-data/json_files
-
-Formato dos arquivos:
-
-id,name
+data/json_files |   {"id":foo, "name":"bar"}
 
 ### Estrutura do projeto
 
@@ -84,6 +80,8 @@ Igual a do CSV, só que troca CSV por TXT.
 
 Mesmo jeito...
 
+## Falta implementar
+
 ### CsvSourceS3.py
 
 Herda da classe CsvSource.py busca arquivos na AWS S3.
@@ -91,6 +89,10 @@ Herda da classe CsvSource.py busca arquivos na AWS S3.
 ### TxtSourceS3.py
 
 Herda da classe TxtSource.py mas busca arquivos na AWS S3.
+
+### JsonSourceS3.py
+
+Herda da classe JsonSource.py mas busca arquivos na AWS S3.
 
 ### aws/s3.py
 
