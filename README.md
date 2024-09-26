@@ -37,6 +37,8 @@ data/csv_files
 
 data/txt_files
 
+data/json_files
+
 Formato dos arquivos:
 
 id,name
@@ -50,11 +52,10 @@ id,name
 ### AbstractDataSource.py:
 Receber dados de fontes genéricas. Garante que todos os desenvolvedores que usarem essa classe tem que escrever estes métodos.
 
-Classe que herda as caracteristicas da classe nativa do python ABC. 
+Classe que herda as caracteristicas da classe nativa do python ABC.
 
 * Classes abstratas: from abc import ABC, abstractmethod
 ABC > PEP 3119 > garantir a função tenha todos os requerimentos para classe abstrata
-
 * abstractmethod > decorator que valida se o método é abstrato e obriga a próxima classe (herdeiros) a ter os métodos da classe anterior.
 
 ### FilesSources.py:
@@ -63,9 +64,36 @@ ABC > PEP 3119 > garantir a função tenha todos os requerimentos para classe ab
 Um método para implementar o que há de comum entre diversos tipos de arquivos.
 
 * Método só para arquivos, cria os arquivos anteriores e aplica o metodo start()
-
 * Método genérico que cria path quando não há. A partir daqui pode fazer um polimorfismo, pegar o método que já existe e muda-lo para a classe herdeira para que se encaixe no contexto secundário.
-
 * Lê a pasta para detectar arquivos atuais, se os arquivos não estão na variável de arquivos anteriores, ela adiciona na lista de novos arquivos e atualiza a arquivos anteriores. Se não há nada novo nada ocorre.
 
 ### CsvSource.py
+
+Herda os comportamentos do FilesSources.py que herda do AbstractDataSource.py
+
+* Reescreve os métodos (da classe anterior) de genérico para definir o arquivo como sendo csv.
+* Para incluir os novos arquivos encontrados ele também verifica se terminam com '.csv'
+
+### TxtSource.py
+
+Igual a do CSV, só que troca CSV por TXT.
+
+* Poderia ter feito uma função dinâmica que recebe o tipo de arquivo, mas foi escrito assim para mostrar o polimorfismo
+
+### JsonSource.py
+
+Mesmo jeito...
+
+### CsvSourceS3.py
+
+Herda da classe CsvSource.py busca arquivos na AWS S3.
+
+### TxtSourceS3.py
+
+Herda da classe TxtSource.py mas busca arquivos na AWS S3.
+
+### aws/s3.py
+
+Classe para fonte com origem em cloud AWS s3.
+
+s3 -> trigger -> ec2 ou lambda ou ecs
