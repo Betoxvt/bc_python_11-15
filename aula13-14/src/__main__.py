@@ -5,6 +5,7 @@ import time
 from lib.classes.CsvSource import CsvSource
 from lib.classes.TxtSource import TxtSource
 
+
 # Função para verificar novos arquivos
 def check_for_new_files():
     csv_source.check_for_new_files()  # Chama o método check_for_new_files da instância
