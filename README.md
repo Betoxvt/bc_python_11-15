@@ -99,3 +99,22 @@ Herda da classe JsonSource.py mas busca arquivos na AWS S3.
 Classe para fonte com origem em cloud AWS s3.
 
 s3 -> trigger -> ec2 ou lambda ou ecs
+
+# Aula 15 - Finalizando POO com uma API teste
+
+Aplicar classes para fazer abstrações com intenção de esconder, ou seja, encapsular os serviços (funções e métodos). Permite no futuro a mudança de serviços utilizando as mesmas classes. Assim o código pode ficar robusto, durar muito tempo e ser flexível/dinâmico
+
+## FastAPI > Criar a API
+REST API: Mudanças de plataforma ou tecnologia na aplicação do servidor não afetam a aplicação do cliente.
+
+1. Transforma funções em API
+2. Métodos HTTP:
+
+        .get    = SELECT -> recebe algum dado
+        .post   = INSERT -> envia dados para o servidor
+        .put    = UPDATE -> faz alteração de dados
+        .delete = DELETE -> deleta dados
+3. Cria docs da API
+4. Pode mandar a rota pro Postman (API Platform) para ter mais controle e melhora a leitura, também gera o código de request.
+
+## Faker > Gera dados de teste (números, nomes, atributos, cód. de barra...)
